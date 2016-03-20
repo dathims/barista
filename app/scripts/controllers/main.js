@@ -8,7 +8,7 @@
  * Controller of the goliathApp
  */
 angular.module('goliathApp')
-  .controller('MainCtrl', ['$scope', '$http', '$rootScope', function($scope, $http, $rootScope) {
+  .controller('MoviesCtrl', ['$scope', '$http', '$rootScope', function($scope, $http, $rootScope) {
   $rootScope.isLoad = false;
   $scope.products = [];
 
@@ -28,5 +28,9 @@ angular.module('goliathApp')
     }).error(function(error){
       console.log(error);
     });
+
+  $scope.video = function(url) {
+    $scope.source = url;
+  };
 
 }]);

@@ -10,19 +10,23 @@
  */
 angular
   .module('goliathApp', [
-    'ngRoute',
+    'ui.router',
     'ngSanitize',
     'ngTouch',
     'angular-carousel'
   ])
-  .config(function ($routeProvider) {
-    $routeProvider
-      .when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl',
-        controllerAs: 'main'
-      })
-      .otherwise({
-        redirectTo: '/'
-      });
+  .config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
+
+      $urlRouterProvider.otherwise('/');
+  //
+  // Now set up the states
+  $stateProvider
+    .state('movies', {
+      url: '/',
+      controller: 'MoviesCtrl',
+      templateUrl: 'views/movies.html'
+    });
+
+    $locationProvider.html5Mode(true);
+
   });

@@ -9,6 +9,7 @@
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
     <link rel="stylesheet" href="bower_components/angular-carousel/dist/angular-carousel.css" />
+    <link rel="stylesheet" href="bower_components/video.js/dist/video-js.css" />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
@@ -19,35 +20,34 @@
     <!--[if lte IE 8]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
-
+    <base href="/">
     <!-- Add your site or application content here -->
     <!-- Add your site or application content here -->
     <div class="goliath">Goliath</div>
     <div class="menu">⑉</div>
     <div class="submenu"></div>
-    <section ng-view="" class="container"></section>
+    <div class="menu-container">
+      <ul>
+        <li><a href="/shows">► <span>Shows/TV</span></a></li>
+        <li><a href="/movies">✪ <span>Movies</span></a></li>
+        <li><a href="/games">⎈ <span>Games</span></a></li>
+        <li><a href="/animes">⌮ <span>Anime/Manga</span></a></li>
+        <li><a href="/soft">⎌ <span>Software</span></a></li>
+        <li><a href="/books">⍟ <span>Books</span></a></li>
+      </ul>
+    </div>
+    <section ui-view class="container"></section>
     <div id="loading" ng-hide="isLoad" ng-show="isLoad"><img src="images/loading.gif" alt="loading" title="wait a few seconds please" width="50" />
     </div>
-
-
-    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
-     <script>
-       !function(A,n,g,u,l,a,r){A.GoogleAnalyticsObject=l,A[l]=A[l]||function(){
-       (A[l].q=A[l].q||[]).push(arguments)},A[l].l=+new Date,a=n.createElement(g),
-       r=n.getElementsByTagName(g)[0],a.src=u,r.parentNode.insertBefore(a,r)
-       }(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-       ga('create', 'UA-XXXXX-X');
-       ga('send', 'pageview');
-    </script>
 
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
     <script src="bower_components/angular/angular.js"></script>
-    <script src="bower_components/angular-route/angular-route.js"></script>
     <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
     <script src="bower_components/angular-touch/angular-touch.js"></script>
     <script src="bower_components/angular-carousel/dist/angular-carousel.js"></script>
+    <script src="bower_components/video.js/dist/video.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 

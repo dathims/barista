@@ -2,7 +2,7 @@
   <li ng-repeat="product in products">
     <div class="media-img" style="background-image:url({{product.gsx$img.$t}});"></div>
     <div class="carousel">
-      <span class="push">Popular movies</span>
+      <span class="push">Popular content</span>
       <div class="denomination">
         <h2 class="title">{{product.gsx$title.$t}}</h2>
         <span class="year" ng-hide="displayNode(product.gsx$type.$t)">{{product.gsx$type.$t}}</span>
@@ -17,14 +17,12 @@
     </div>
   </li>
 </ul>
-<div class="fixed-bottom">
-  <div class="search">
-    ⚲ <input type="search" autocomplete="on" autofocus placeholder="search a movie">
-  </div>
+<div class="search content-search">
+  ⚲ <input type="search" autocomplete="on" autofocus placeholder="search a movie" ng-model="searchText">
 </div>
 <div class="content-box">
   <ul class="clearfix">
-    <li ng-repeat="movie in box">
+    <li ng-repeat="movie in box | filter:searchText">
       <div class="media-img" style="background-image:url({{movie.gsx$img.$t}});"></div>
       <div class="wrapper-li">
         <div class="denomination">
