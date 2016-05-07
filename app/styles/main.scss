@@ -32,7 +32,7 @@ html {
   line-height: 1.4;
   /* Space out content a bit */
   body {
-    background: $_dark-1;
+    background: #fff;
     font-family: 'Source Sans Pro', sans-serif;
     .browsehappy {
       margin: 0.2em 0;
@@ -257,7 +257,7 @@ nav.first {
   right: 0;
   width: 100%;
   background-color: black;
-  height: 80vh;
+  height: 100vh;
   .carousel {
     position: absolute;
     width: 390%;
@@ -308,7 +308,11 @@ nav.first {
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
-    position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    text-indent: -1000em;
+    overflow: hidden;
   }
 .wrapper-li{
   position: absolute;
@@ -472,45 +476,76 @@ button {
     left: 75px;
     right: 0;
 }
-.content-box {
+.content-box.show-tv {
   width: 100%;
-  margin: 0 auto 80px;
+  margin: 0 auto;
+  min-height: 100vh;
   ul li {
     text-decoration: none;
     list-style: none;
-    height: 745px;
-    width:33%;
+    width:200px;
+    margin-right:5px;
+    margin-bottom: 5px;
     float: left;
     background-size: cover;
     position: relative;
 
     .title {
-      font-size: 1.4em;
-    }
-
-    &:nth-child(3n-4){
-      width: 34%;
-    }
-
-    &:nth-child(2){
-      width: 34%;
-    }
-    &:nth-child(3){
-      width: 33%;
-    }
-    &:nth-child(4){
-      width: 67%;
-    }
-    &:nth-child(5){
-      width: 33%;
-    }
-    &:nth-child(9){
-      width: 50%;
-      height: 400px;
-    }
-    &:nth-child(10){
-      width: 50%;
-      height: 400px;
+      font-size: .8em;
+      font-weight: 200;
+      padding-top: 10px;
     }
   }
+  li:nth-child(1){
+    width: 405px;
+    height: auto;
+    margin-bottom: 0;
+    .media-img {
+      width: 100%;
+      height:555px;
+    }
+  }
+
+  .media-img {
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 200px;
+    height: 250px;
+  }
+}
+
+
+.video-full-with {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+}
+
+.show-tv {
+  background: #1f1f1f;
+  position: relative;
+  overflow: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  ul {
+    width: 95%;
+    margin: 0 auto;
+  }
+}
+
+.description-show {
+  height: auto;
+}
+h1.category {
+  color: #fff;
+  padding: 25px 20px 25px 50px;
+  font-size: 1em;
+  font-weight: 100;
+}
+
+.vjs-poster {
+  background-size: cover;
 }

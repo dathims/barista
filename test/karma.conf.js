@@ -28,6 +28,7 @@ module.exports = function(config) {
       'bower_components/angular-carousel/dist/angular-carousel.js',
       'bower_components/video.js/dist/video.js',
       'bower_components/angular-ui-router/release/angular-ui-router.js',
+      'bower_components/vjs-video/dist/vjs-video.min.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
       "app/scripts/**/*.js",

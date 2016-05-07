@@ -8,7 +8,7 @@
  * Controller of the goliathApp
  */
 angular.module('goliathApp')
-  .controller('MoviesCtrl', ['$scope', '$http', '$rootScope', function($scope, $http, $rootScope) {
+  .controller('MoviesCtrl', ['$scope', '$http', '$rootScope','$stateParams', function($scope, $http, $rootScope, $stateParams) {
   $rootScope.isLoad = false;
   $scope.products = [];
 
@@ -32,5 +32,31 @@ angular.module('goliathApp')
   $scope.video = function(url) {
     $scope.source = url;
   };
+  console.log('$stateParams.url ->',$stateParams);
+  $scope.mediaToggle = {
+            sources: [
+                {
+                    src: $stateParams.url,
+                    type: 'video/mp4'
+                }
+            ],
+            tracks: [
+                {
+                    kind: 'subtitles',
+                    label: 'Français',
+                    src: $stateParams.sub,
+                    srclang: 'fr',
+                    default: true
+                },
+                {
+                    kind: 'subtitles',
+                    label: 'Français SRT',
+                    src: $stateParams.sub,
+                    srclang: 'fr',
+                    default: true
+                }
+            ],
+            poster: $stateParams.img
+        };
 
 }]);

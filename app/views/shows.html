@@ -1,8 +1,8 @@
 <div class="content-box show-tv">
-  <h1 class="category">Movies</h1>
+  <h1 class="category">Shows TV</h1>
   <ul class="clearfix">
     <li ng-repeat="movie in box | filter:searchText">
-      <a class="media-img" style="background-image:url({{movie.gsx$img.$t}});" ui-sref="player({url: movie.gsx$link.$t, sub: movie.gsx$subtitle.$t, img: movie.gsx$portrait.$t})"></a>
+      <a class="media-img" style="background-image:url({{movie.gsx$img.$t}});" ui-sref="show({link: movie.gsx$link.$t})">{{movie.gsx$title.$t}}</a>
       <div class="description-show">
         <div class="denomination">
           <h2 class="title">{{movie.gsx$title.$t}}</h2>

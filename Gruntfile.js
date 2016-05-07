@@ -8,6 +8,7 @@
 // 'test/spec/**/*.js'
 
 module.exports = function (grunt) {
+  var modRewrite = require('connect-modrewrite');
 
   // Time how long tasks take. Can help when optimizing build times
   require('time-grunt')(grunt);
@@ -18,7 +19,6 @@ module.exports = function (grunt) {
     ngtemplates: 'grunt-angular-templates',
     cdnify: 'grunt-google-cdn'
   });
-
   // Configurable paths for the application
   var appConfig = {
     app: require('./bower.json').appPath || 'app',
@@ -77,23 +77,20 @@ module.exports = function (grunt) {
       },
       livereload: {
         options: {
-          open: true,
-          middleware: function (connect) {
-            return [
-              connect.static('.tmp'),
-              connect().use(
-                '/bower_components',
-                connect.static('./bower_components')
-              ),
-              connect().use(
-                '/app/styles',
-                connect.static('./app/styles')
-              ),
-              connect.static(appConfig.app)
-            ];
-          }
+            open: true,
+            middleware: function (connect) {
+                return [
+                    modRewrite(['^[^\\.]*$ /index.html [L]']),
+                    connect.static('.tmp'),
+                    connect().use(
+                        '/bower_components',
+                        connect.static('./bower_components')
+                    ),
+                    connect.static(appConfig.app)
+                ];
+            }
         }
-      },
+    },
       test: {
         options: {
           port: 9001,
