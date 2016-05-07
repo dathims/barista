@@ -37,7 +37,7 @@ angular.module('goliathApp')
   $scope.mediaToggle = {
             sources: [
                 {
-                    src: $stateParams.mp4,
+                    src: $stateParams.url,
                     type: 'video/mp4'
                 }
             ],
