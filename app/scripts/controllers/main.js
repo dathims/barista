@@ -37,17 +37,17 @@ angular.module('goliathApp')
   $scope.mediaToggle = {
             sources: [
                 {
-                    src: $stateParams.url,
+                    src: $stateParams.mp4,
                     type: 'video/mp4'
                 }
             ],
             tracks: [
                 {
                     kind: 'subtitles',
-                    label: 'English subtitles',
+                    label: 'Français',
                     src: $stateParams.sub,
-                    srclang: 'en',
-                    default: false
+                    srclang: 'fr',
+                    default: true
                 }
             ],
             poster: $stateParams.img
