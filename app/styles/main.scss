@@ -518,8 +518,13 @@ button {
 
 .video-full-with {
   width: 100%;
-  height: 100vh;
+  height: 75vh;
   position: relative;
+}
+
+.frame-page-article {
+  background: #1f1f1f;
+  min-height: 100vh;
 }
 
 .show-tv {
@@ -535,6 +540,11 @@ button {
     margin: 0 auto;
   }
 }
+.video-js .vjs-big-play-button {
+  top: 50%;
+  left: 50%;
+  margin-left: -1.5em;
+}
 
 .description-show {
   height: auto;
@@ -548,4 +558,17 @@ h1.category {
 
 .vjs-poster {
   background-size: cover;
+}
+
+.link-home {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+  color: #fff;
+}
+
+.article-content {
+  padding: 50px;
 }

@@ -40,6 +40,6 @@ app.listen(app.get('port'), function () {
 });
 
 
-app.all('/*', function(req, res) {
-    res.sendfile('/dist/index.html');
+app.get('*', function (req, res) {
+    res.sendFile(dirname + '/dist/index.html');
   });

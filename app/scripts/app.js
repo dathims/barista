@@ -27,11 +27,9 @@ angular
       controller: 'MoviesCtrl',
       templateUrl: 'views/home.html'
     }).state('player', {
-      url: '/player',
+      url: '/movies/:id',
       params: {
-        url: null,
-        sub: null,
-        img: null
+        id: null
       },
       controller: 'MoviesCtrl',
       templateUrl: 'views/player.html'
@@ -43,13 +41,6 @@ angular
       url: '/movies',
       controller: 'MoviesCtrl',
       templateUrl: 'views/movies.html'
-    }).state('movie', {
-      url: '/movies/:name',
-      controller: 'MoviesCtrl',
-      templateUrl: 'views/movie.html',
-      params: {
-        link: null
-      },
     });
 
     $locationProvider.html5Mode(true);
