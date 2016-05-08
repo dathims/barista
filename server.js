@@ -41,5 +41,5 @@ app.listen(app.get('port'), function () {
 
 
 app.all('/*', function(req, res) {
-    res.sendfile('index.html');
+    res.sendfile('/dist/index.html');
   });
