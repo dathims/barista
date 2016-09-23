@@ -1,0 +1,30 @@
+// variables
+$_height_bloc: 330px;
+
+.list-330 {
+  height: $_height_bloc;
+}
+.list-660 {
+  height: $_height_bloc*2;
+}
+.list-990 {
+  height: $_height_bloc*3;
+}
+.list-1320 {
+  height: $_height_bloc*4;
+}
+.list-1650 {
+  height: $_height_bloc*5;
+}
+.list-1980 {
+  height: $_height_bloc*6;
+}
+.list-2310 {
+  height: $_height_bloc*7;
+}
+.list-2640 {
+  height: $_height_bloc*8;
+}
+.align-center {
+  text-align: center;
+}

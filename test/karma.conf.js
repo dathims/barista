@@ -22,14 +22,19 @@ module.exports = function(config) {
     // list of files / patterns to load in the browser
     files: [
       // bower:js
+      'bower_components/es5-shim/es5-shim.js',
       'bower_components/angular/angular.js',
-      'bower_components/angular-sanitize/angular-sanitize.js',
+      'bower_components/json3/lib/json3.js',
+      'bower_components/angular-resource/angular-resource.js',
+      'bower_components/angular-cookies/angular-cookies.js',
+      'bower_components/angular-route/angular-route.js',
       'bower_components/angular-touch/angular-touch.js',
       'bower_components/angular-carousel/dist/angular-carousel.js',
-      'bower_components/video.js/dist/video.js',
-      'bower_components/angular-ui-router/release/angular-ui-router.js',
-      'bower_components/vjs-video/dist/vjs-video.min.js',
+      'bower_components/angular-local-storage/dist/angular-local-storage.js',
+      'bower_components/angular-filter/dist/angular-filter.min.js',
+      'bower_components/lodash/lodash.js',
       'bower_components/angular-mocks/angular-mocks.js',
+      'bower_components/angular-scenario/angular-scenario.js',
       // endbower
       "app/scripts/**/*.js",
       "test/mock/**/*.js",

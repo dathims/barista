@@ -1,38 +1,21 @@
-// color
-$_dark-1 : #0b0b0b;
-$_dark : #050505;
-$_darken : #0f0f0f;
-$_grey-light: #c0c0c0;
-$_maxwidth : 500px;
-$_height_header : 32px;
-$_last: 100;
-$_middle: $_last / 2;
-$_first: 1;
-$_yellow: #ffc917;
+@import "bourbon/bourbon";
 
-ul, li, h1, h2, h3, h4, h5, body, html {
-  margin: 0;
-  padding: 0;
-  text-decoration: none;
-  list-style: none;
-}
+// bower:scss
+@import "components-font-awesome/scss/font-awesome.scss";
+// endbower
+@import "reset.scss";
+@import "variable.scss";
+@import "typo.scss";
+@import "components.scss";
 
-.clearfix:before,
-.clearfix:after {
-    content: " "; /* 1 */
-    display: table; /* 2 */
-}
-
-.clearfix:after {
-    clear: both;
-}
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700);
 
 html {
   font-size: 1em;
   line-height: 1.4;
   /* Space out content a bit */
   body {
-    background: #fff;
+    background: $_dark;
     font-family: 'Source Sans Pro', sans-serif;
     .browsehappy {
       margin: 0.2em 0;
@@ -57,10 +40,10 @@ html {
 
 }
 .opacityLanding {
-  -webkit-opacity: 0.8;
-  -moz-opacity: 0.8;
-  opacity: 0.8;
-  filter: alpha(opacity = 80);
+  -webkit-opacity: 0.4;
+  -moz-opacity: 0.4;
+  opacity: 0.4;
+  filter: alpha(opacity = 40);
 
 }
 #logo,
@@ -94,78 +77,6 @@ nav.first li {
   text-decoration: none;
 
 }
-.menu-container {
-  left: 0;
-  width: 75px;
-  background: #fff;
-  top: 0;
-  bottom: 0;
-  height: 100%;
-  position: fixed;
-  z-index: 88;
-  ul {
-    margin-top: 75px;
-    li {
-    display: block;
-    height: 100px;
-    position: relative;
-    text-align: center;
-    line-height: 100px;
-    &:nth-child(2) {
-      a {
-        font-size: 32px;
-      }
-    }
-    &:nth-child(3) {
-      a {
-        font-size: 28px;
-      }
-    }
-    &:nth-child(4) {
-      a {
-        font-size: 68px;
-      }
-    }
-    &:nth-child(5) {
-      a {
-        font-size: 42px;
-      }
-    }
-    &:nth-child(6) {
-      a {
-        font-size: 52px;
-      }
-    }
-    a {
-      text-decoration: none;
-      color: #c0c0c0;
-      font-size: 20px;
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      top: 0;
-
-      span {
-        color: #777;
-        display: block;
-        font-size: 10px;
-        font-weight:100;
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        line-height: initial;
-        text-align: center;
-      }
-    }
-  }
-  }
-}
-
-.container {
-    padding-left: 75px;
-}
 nav.first {
   margin-left: 40px;
   height: $_height_header;
@@ -178,6 +89,7 @@ nav.first {
       line-height: $_height_header;
       margin-right: 60px;
       a {
+        @extend .nav_font;
         color: white;
         text-decoration: none;
         &:hover {
@@ -201,7 +113,7 @@ nav.first {
   text-decoration: none;
 
 }
-.menu {
+.menu {  
   z-index: 1000;
   position: fixed;
   top: 20px;
@@ -224,47 +136,40 @@ nav.first {
 .goliath {
   z-index: 1000;
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 75px;
-  height: 75px;
-  line-height: 75px;
-  text-align: center;
+  top: 20px;
+  left: 20px;
   font-size: 12px;
   text-transform: uppercase;
   color: #fff;
-  background: $_yellow;
-  color: #000;
 }
 
 .button-express {
-      padding: 5px;
+
+      padding: 7px 10px;
       display: inline-block;
       margin-right: 5px;
       font-size: 11px;
-      letter-spacing: 1px;
+      text-transform: uppercase;
       text-decoration: none;
       background: transparent;
       border-radius: 1px;
       font-weight: 100;
-      border-radius: 2px;
 }
 
 .landing {
-  position: relative;
+  position: absolute;
   top: 0;
   left: 0;
   right: 0;
+  bottom: 0;
   width: 100%;
   background-color: black;
   height: 100vh;
   .carousel {
     position: absolute;
-    width: 390%;
+    width: 80%;
     left: 60px;
     top: 35%;
-  }
-}
     .title {
       font-size: 2.5em;
       font-weight: 600;
@@ -279,7 +184,7 @@ nav.first {
     font-size: 0.7em;
     text-transform: uppercase;
     color: $_yellow;
-     clear: left;
+     clear: left; 
     }
     .director {
     font-size: 0.7em;
@@ -290,57 +195,42 @@ nav.first {
     }
     .trailer {
       color: white;
-      border: 1px solid #eee;
+      border: 1px solid #fff;
       @extend .button-express
     }
     .hackit {
-      background: $_yellow;
-      color: #000;
-      @extend .button-express;
+      border: 1px solid $_yellow;
+      color: $_yellow;
+      @extend .button-express
     }
     .soon {
-      border: 1px solid #eee;
+      border: 1px solid #fff;
       color: #fff;
       opacity: 0.5;
       @extend .button-express
     }
+
+  }
   .media-img {
+    background-color: black;
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
-    width: 100%;
-    height: 100%;
-    display: block;
-    text-indent: -1000em;
-    overflow: hidden;
+    @include position(absolute, 0px 0px 0px 0px);
+    @extend .opacityLanding;
   }
-.wrapper-li{
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 20px;
-  background: rgba(0,0,0,0);
-  background: -moz-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0.8) 100%);
-  background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(0,0,0,0)), color-stop(100%, rgba(0,0,0,0.8)));
-  background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0.8) 100%);
-  background: -o-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0.8) 100%);
-  background: -ms-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0.8) 100%);
-  background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.8) 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#000000', GradientType=0 );
+
 }
 .rn-carousel-control.rn-carousel-control-prev {
   background: url("../images/arrow-left.png") no-repeat center center;
-  width: 38px;
-  height: 38px;
+  @include size(38px);
   text-indent: -1000em;
   outline: none;
 
 }
 .rn-carousel-control.rn-carousel-control-next {
   background: url("../images/arrow-right.png") no-repeat center center;
-  width: 38px;
-  height: 38px;
+  @include size(38px);
   text-indent: -1000em;
   outline: none;
 
@@ -363,10 +253,117 @@ nav.first {
   margin-bottom: 30px;
 
 }
+.bloc-module {
+  padding: 20px 0;
+  color: white;
+  ul,
+  li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  a.link {
+    color: white;
+    text-decoration: none;
+    font-weight: 200;
+    &:hover {
+      color: $_yellow;
+    }
+
+  }
+  .titleSection {
+    font-weight: 200;
+    margin-bottom: 20px;
+    a {
+      color: white;
+      font-weight: 200;
+      text-decoration: underline;
+    }
+
+  }
+  &.seriesSection {
+    @include clearfix;
+    ul {
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      overflow: hidden;
+      li {
+        width: 25%;
+        padding: 0 20px 0 0;
+        box-sizing: border-box;
+        &:after,
+        &:before {
+          content: " ";
+          display: table;
+        }
+        &:after {
+          clear: both;
+        }
+        a {
+          color: white;
+          float: left;
+          @include ellipsis(80%);
+        }
+        .info {
+          float: right;
+          color: #555;
+        }
+      }
+    }
+  }
+
+}
+.poster-thumbs {
+  float: left;
+  margin: 10px 40px 0 0;
+
+}
+form.authenticate {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -250px;
+  margin-top: -100px;
+  color: white;
+  text-align: center;
+  @include size(500px 200px);
+  input[type=text] {
+    background: transparent;
+    border: 0;
+    font-size: 4.1em;
+    color: white;
+    text-align: center;
+    width: 500px;
+    display: inline-block;
+    margin: 20px 0;
+    font-weight: 200;
+    font-family: 'Source Sans Pro', sans-serif;
+    outline: none;
+    -moz-appearance: none;
+    &:required,
+    &:invalid {
+      box-shadow: none;
+    }
+  }
+
+}
+.authenticatePage {
+  @include size(100%);
+  @include position(absolute, 0px 0px 0px 0px);
+
+}
+.authenticateImg {
+  @include size(100%);
+  @include position(absolute, 0px 0px 0px 0px);
+  background: url("http://blogs-images.forbes.com/erikkain/files/2014/06/game-of-thrones-s4e3-arya.jpg") no-repeat center center black;
+  background-size: cover;
+  @extend .opacityLanding;
+
+}
 #loading {
-  width: 100%;
-  height: 100%;
-  position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+  @include size(100%);
+  @include position(fixed, 0px 0px 0px 0px);
   z-index: $_last;
   background-color: rgba(0, 0, 0, 0.8);
   text-align: center;
@@ -377,8 +374,69 @@ nav.first {
   }
 
 }
+.indicator {
+  text-align: center;
+
+}
+.linkAffiliate {
+  color: white;
+  @include clearfix;
+  .episode-list {
+    margin-bottom: 50px;
+    li {
+      display: inline-block;
+      margin: 10px 10px 0 0;
+      &.first {
+        text-transform: uppercase;
+        font-weight: 200;
+        display: block;
+      }
+
+    }
+    .rectangle {
+      border: 1px solid $_dark-1;
+      font-weight: 200;
+      font-size: 0.8em;
+      text-transform: uppercase;
+      text-decoration: none;
+      @include size(154px 50px);
+      line-height: 50px;
+      text-align: center;
+      display: inline-block;
+      background: $_dark-1;
+      color: #ccc;
+      @include position(relative);
+      // &:hover {
+      //     background: $_yellow;
+      // }
+      .indice {
+        display: none;
+      }
+      &:hover {
+        color: $_yellow;
+        border: 1px solid $_yellow;
+        &:after {
+          content: "";
+          width: 0;
+          height: 0;
+          border-style: solid;
+          border-width: 0 20px 20px 0;
+          border-color: transparent #fd0 transparent transparent;
+          @include position(absolute, 0px 0px 0 0);
+        }
+        .indice {
+          @include position(absolute, 0px 0px 0 0);
+          color: $_dark;
+          z-index: $_middle;
+          display: block;
+        }
+      }
+    }
+  }
+
+}
 .footer {
-  position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+  @include position(fixed, 0 0px 0px 0px);
   background: rgba(0, 0, 0, 0.5);
   z-index: $_middle;
   -webkit-box-shadow: 0 0 0 1px rgba(0, 0, 0, 1);
@@ -400,8 +458,7 @@ button {
   &.next,
   &.prev {
     border-radius: 15px;
-    width: 30px;
-    height: 30px;
+    @include size(30px);
     line-height: 20px;
     text-align: center;
     background: transparent;
@@ -430,145 +487,85 @@ button {
 .next-wrapper {
   padding: 40px 0;
 }
-.fixed-bottom {
-  position: fixed;
-  bottom: 0;
+
+.search-form {
+  position: absolute;
+  z-index: 111;
   left: 0;
   right: 0;
-  z-index: 999;
-  opacity: .8;
-}
-.search {
-  height: 50px;
-  box-sizing: border-box;
-  border-radius: 25px;
-  position: absolute;
-  top: 20px;
-  left: 50%;
-  margin-left: -150px;
-  width: 300px;
-  background: rgba(0, 0, 0, 0.8);
-  color: #fff;
-  line-height: 50px;
-  text-indent: 15px;
-
-  input[type=search] {
-    position: absolute;
-    appearance: none;
-    width: 90%;
-    border: none;
-    text-indent: 30px;
-    top: 0;
-    left: 10px;
-    right: 10px;
-    bottom: 0;
-    font-size: 14px;
-    display: block;
-    outline: none;
-    color: white;
-    background: transparent;
-  }
-}
-
-.rn-carousel-controls {
-  position: absolute;
-    top: 40%;
-    left: 75px;
-    right: 0;
-}
-.content-box.show-tv {
-  width: 100%;
-  margin: 0 auto;
-  min-height: 100vh;
-  ul li {
-    text-decoration: none;
-    list-style: none;
-    width:200px;
-    margin-right:5px;
-    margin-bottom: 5px;
-    float: left;
-    background-size: cover;
-    position: relative;
-
-    .title {
-      font-size: .8em;
-      font-weight: 200;
-      padding-top: 10px;
-    }
-  }
-  li:nth-child(1){
-    width: 405px;
-    height: auto;
-    margin-bottom: 0;
-    .media-img {
-      width: 100%;
-      height:555px;
-    }
-  }
-
-  .media-img {
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    width: 200px;
-    height: 250px;
-  }
-}
-
-
-.video-full-with {
-  width: 100%;
-  height: 75vh;
-  position: relative;
-}
-
-.frame-page-article {
-  background: #1f1f1f;
-  min-height: 100vh;
-}
-
-.show-tv {
-  background: #1f1f1f;
-  position: relative;
-  overflow: auto;
   top: 0;
-  right: 0;
+  text-align: center;
+  padding: 50px;
+  outline: none;
+  width: 100%;
+  box-sizing: border-box;
+    background: transparent;
+    -webkit-transition: background-color 100ms linear;
+    -moz-transition: background-color 100ms linear;
+    -o-transition: background-color 100ms linear;
+    -ms-transition: background-color 100ms linear;
+    transition: background-color 100ms linear;
+    pointer-events: auto;
+  &.bg-for-search {
+    background: rgba(0,0,0,0.9);
+  -webkit-transition: background-color 300ms linear;
+  -moz-transition: background-color 300ms linear;
+  -o-transition: background-color 300ms linear;
+  -ms-transition: background-color 300ms linear;
+  transition: background-color 300ms linear;
   bottom: 0;
-  left: 0;
-  ul {
-    width: 95%;
-    margin: 0 auto;
+  pointer-events: auto;
+    color: #fff;
+    .result {
+      color: #fff;
+      li a {
+        color: #fff;
+      }
+    }
+  }
+  input[type=search]{
+    background: transparent;
+    outline: none;
+    padding: 15px 50px;
+    font-size: 1.3em;
+    color: #fff;
+    width: 300px;
+    margin: auto;
+    border: 1px solid #fff;
+    border-radius :30px;
+    -moz-border-radius :35px;
+    -webkit-border-radius :35px;
   }
 }
-.video-js .vjs-big-play-button {
-  top: 50%;
-  left: 50%;
-  margin-left: -1.5em;
+
+.result {
+  padding-top: 100px;
+  li {
+    float: left;
+    text-align: left;
+    margin-bottom: 50px;
+    width: 33%;
+    box-sizing: border-box;
+    .roundup {
+      float: left;
+      margin-right: 20px;
+      margin-bottom: 10px;
+      border-radius: 50%;
+      overflow: hidden;
+        height: 100px;
+        width: 100px;
+      img {
+        height: 100px;
+      }
+    }
+    span {
+      text-decoration: none;
+    }
+  }
 }
 
-.description-show {
-  height: auto;
-}
-h1.category {
-  color: #fff;
-  padding: 25px 20px 25px 50px;
-  font-size: 1em;
-  font-weight: 100;
-}
-
-.vjs-poster {
-  background-size: cover;
-}
-
-.link-home {
-  display: block;
-  position: relative;
-  width: 100%;
-  height: 100%;
-  text-decoration: none;
-  color: #fff;
-}
-
-.article-content {
-  padding: 50px;
+.unstyle {
+  text-decoration: inherit;
+  color: inherit;
+  font-weight: inherit;
 }

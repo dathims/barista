@@ -2,77 +2,51 @@
 
 /**
  * @ngdoc function
- * @name goliathApp.controller:MainCtrl
+ * @name hackApp.controller:MainCtrl
  * @description
  * # MainCtrl
- * Controller of the goliathApp
+ * Controller of the hackApp
  */
-angular.module('goliathApp')
-  .controller('MoviesCtrl', ['$scope', '$http', '$rootScope','$stateParams', function($scope, $http, $rootScope, $stateParams) {
+//1P-txsOva5v-KgCIhnz1QPHDmuN_vxavy2FKAbsiqKXM
+angular.module('app')
+  .controller('MainCtrl', ['$scope', '$http', '$rootScope', function($scope, $http, $rootScope) {
   $rootScope.isLoad = false;
   $scope.products = [];
+  $scope.searchList = [];
+  $scope.result = [];
 
-  var googlePrefix = 'https://spreadsheets.google.com/feeds/list/';
-  var format = '?alt=json';
-  var googleSuffix = '/od6/public/values';
-  var moviesID = '1wcuIIt0LkPePVgFzViADJD07WrhAa-QNCSCCBywtHxM';
-  var landingID = '13SOrx5_jlro0zNEXADBqzeMkdT7Nwp8xc954vZIKh64';
-
-  $http.get(googlePrefix + landingID + googleSuffix +format)
+  $http.get("https://spreadsheets.google.com/feeds/list/13SOrx5_jlro0zNEXADBqzeMkdT7Nwp8xc954vZIKh64/od6/public/values?alt=json")
     .success(function(data) {
       $rootScope.isLoad = true;
       $scope.products = data.feed.entry;
+      _.forEach($scope.products, function(item){
+        $scope.searchList.push({
+          title : item.gsx$title.$t,
+          img : item.gsx$img.$t,
+          type : item.gsx$type.$t,
+          director : item.gsx$director.$t,
+          description : item.gsx$description.$t,
+          trailer : item.gsx$trailer.$t,
+          link : item.gsx$link.$t,
+          category : item.gsx$category.$t
+        });
+      });
+      $scope.result = $scope.searchList;
+     console.log($scope.result);
     }).
   error(function(error) {
     $rootScope.isLoad = true;
     console.error(error);
   });
-  $http.get(googlePrefix + moviesID + googleSuffix + format)
-    .success(function(data) {
-      $scope.box = data.feed.entry;
-      console.log($scope.box);
-    }).error(function(error){
-      console.log(error);
-    });
 
-  $scope.extractID = function(url){
-    return url.split('/').pop();
+  $scope.selectMovie = function(obj) {
+    $scope.result = [obj];
+    $scope.searchMovie = '';
   };
 
-  if($stateParams.id){
-    var paramId = '/' + $stateParams.id;
-    $http.get(googlePrefix + moviesID + googleSuffix + paramId + format)
-      .success(function(data) {
-        $rootScope.isLoad = true;
-        $scope.article = data.entry;
-        $scope.mediaToggle = {
-                  sources: [
-                      {
-                          src: $scope.article.gsx$link.$t,
-                          type: 'video/mp4'
-                      }
-                  ],
-                  tracks: [
-                      {
-                          kind: 'subtitles',
-                          label: 'Français',
-                          src: $scope.article.gsx$subtitle.$t,
-                          srclang: 'fr',
-                          default: true
-                      }
-                  ],
-                  poster: $scope.article.gsx$portrait.$t
-              };
-      })
-      .error(function(error) {
-        $rootScope.isLoad = true;
-        console.error(error);
-      });
+  $rootScope.refresh = function() {
+    $scope.searchMovie = '';
+    $scope.result = $scope.searchList;    
   };
 
-  $scope.video = function(url) {
-    $scope.source = url;
-  };
-  console.log('$stateParams ->',$stateParams);
-  $scope.track = $stateParams.sub;
 }]);

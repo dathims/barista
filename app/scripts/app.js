@@ -2,47 +2,33 @@
 
 /**
  * @ngdoc overview
- * @name goliathApp
+ * @name hackApp
  * @description
- * # goliathApp
+ * # hackApp
  *
  * Main module of the application.
  */
+
+// var HACKAPI-SHOW = '15s1txaljepJBT6bWaJNzoS4dxjH8HWql6icdAhqcPFA';
+// var URL_DIST = 'http://0.0.0.0:3000';
+// var URL_DIST = 'http://hackback.herokuapp.com';
+// var URL_LOCAL = 'http://localhost:9000';
+// var URL_BANNER_TVDB = 'http://thetvdb.com/banners/fanart/original/';
+// var URL_POSTER_TVDB = 'http://thetvdb.com/banners/posters/';
 angular
-  .module('goliathApp', [
-    'ui.router',
-    'ngSanitize',
+  .module('app', [
+    'ngRoute',
     'ngTouch',
     'angular-carousel',
-    'vjs.video'
+    'angular.filter',
   ])
-  .config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
-
-      $urlRouterProvider.otherwise('/');
-  //
-  // Now set up the states
-  $stateProvider
-    .state('home', {
-      url: '/',
-      controller: 'MoviesCtrl',
-      templateUrl: 'views/home.html'
-    }).state('player', {
-      url: '/movies/:id',
-      params: {
-        id: null
-      },
-      controller: 'MoviesCtrl',
-      templateUrl: 'views/player.html'
-    }).state('shows', {
-      url: '/shows',
-      controller: 'MoviesCtrl',
-      templateUrl: 'views/shows.html'
-    }).state('movies', {
-      url: '/movies',
-      controller: 'MoviesCtrl',
-      templateUrl: 'views/movies.html'
-    });
-
-    $locationProvider.html5Mode(true);
-
+  .config(function($routeProvider) {
+    $routeProvider
+      .when('/', {
+        templateUrl: 'views/main.html',
+        controller: 'MainCtrl'
+      })
+      .otherwise({
+        redirectTo: '/'
+      });
   });
