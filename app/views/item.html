@@ -1,0 +1,24 @@
+<ul rn-carousel rn-carousel-controls rn-carousel-buffered class="landing">
+  <li>
+    <div class="media-img" style="background-image:url({{items.product.img}})"></div>
+    <div class="carousel">
+      <span class="push" ng-bind="items.product.category"></span>
+      <div class="denomination">
+        <h2 class="title">{{items.product.title}}</h2>
+        <span class="year" ng-hide="items.product.category < 1">{{items.product.category}}</span>
+        <span class="year" ng-hide="items.product.type < 1">{{items.product.type}}</span>
+        <span class="director" ng-hide="items.product.director < 1">{{items.product.director}}</span>
+      </div>
+      <p class="description" ng-bind="items.product.description"></p>
+      <div class="linkTrailer">
+        <a ng-href="{{items.product.trailer}}" class="trailer" ng-hide="items.product.trailer.length < 1"> ▸ Watch the trailer</a>
+        <a ng-href="{{items.product.link}}" class="hackit" ng-if="items.product.link">Hack it</a>
+        <span ng-href="" class="soon" ng-if="!items.product.link">Coming soon</span>
+      </div>
+      <videogular>
+        <vg-media vg-src="items.config.sources">
+        </vg-media>
+      </videogular>
+    </div>
+  </li>
+</ul>

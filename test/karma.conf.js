@@ -33,6 +33,9 @@ module.exports = function(config) {
       'bower_components/angular-local-storage/dist/angular-local-storage.js',
       'bower_components/angular-filter/dist/angular-filter.min.js',
       'bower_components/lodash/lodash.js',
+      'bower_components/localforage/dist/localforage.js',
+      'bower_components/angular-sanitize/angular-sanitize.js',
+      'bower_components/videogular/videogular.js',
       'bower_components/angular-mocks/angular-mocks.js',
       'bower_components/angular-scenario/angular-scenario.js',
       // endbower

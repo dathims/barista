@@ -2,31 +2,33 @@
 
 /**
  * @ngdoc overview
- * @name hackApp
+ * @name barista
  * @description
- * # hackApp
+ * # barista
  *
  * Main module of the application.
  */
 
 // var HACKAPI-SHOW = '15s1txaljepJBT6bWaJNzoS4dxjH8HWql6icdAhqcPFA';
-// var URL_DIST = 'http://0.0.0.0:3000';
-// var URL_DIST = 'http://hackback.herokuapp.com';
-// var URL_LOCAL = 'http://localhost:9000';
-// var URL_BANNER_TVDB = 'http://thetvdb.com/banners/fanart/original/';
-// var URL_POSTER_TVDB = 'http://thetvdb.com/banners/posters/';
 angular
-  .module('app', [
+  .module('barista', [
     'ngRoute',
     'ngTouch',
     'angular-carousel',
     'angular.filter',
+    'com.2fdevs.videogular'
   ])
   .config(function($routeProvider) {
     $routeProvider
+      .when('/media/:id', {
+        templateUrl: 'views/item.html',
+        controller: 'ItemCtrl',
+        controllerAs: 'items'
+      })
       .when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl'
+        templateUrl: 'views/home.html',
+        controller: 'HomeCtrl',
+        controllerAs: 'main'
       })
       .otherwise({
         redirectTo: '/'

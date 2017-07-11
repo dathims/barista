@@ -10,26 +10,8 @@ var app = express();
 process.env.PWD = process.cwd()
 app.set('port', (process.env.PORT || 3333))
 
-// Require http auth
-// Remove comments below if you want HTTP Auth and change credentials to your liking
-/*
-app.use(http_auth.realm('Protected Area'));
-app.use(function (req, res, next) {
-    if (req.username == 'john.doe' && req.password == 'topsecret123') {
-        next();
-    } else {
-        res.sendStatus(403);
-    }
-});
-*/
-
 // Compress and serve content
 app.use(compress);
-
-// Redirect root to phoenix
-/*app.get('/', function(req, res, next) {
- res.redirect(302, '/index.html');
- });*/
 
 // Serve static files as default
 dirname = (__dirname == "/app") ? process.env.PWD : __dirname;
@@ -42,4 +24,4 @@ app.listen(app.get('port'), function () {
 
 app.get('*', function (req, res) {
     res.sendFile(dirname + '/dist/index.html');
-  });
+});

@@ -1,23 +1,23 @@
 'use strict';
 
-describe('Controller: MainCtrl', function () {
+describe('Controller: ItemCtrl', function () {
 
   // load the controller's module
-  beforeEach(module('goliathApp'));
+  beforeEach(module('barista'));
 
-  var MainCtrl,
+  var ItemCtrl,
     scope;
 
   // Initialize the controller and a mock scope
   beforeEach(inject(function ($controller, $rootScope) {
     scope = $rootScope.$new();
-    MainCtrl = $controller('MainCtrl', {
+    ItemCtrl = $controller('ItemCtrl', {
       $scope: scope
       // place here mocked dependencies
     });
   }));
 
   it('should attach a list of awesomeThings to the scope', function () {
-    expect(MainCtrl.awesomeThings.length).toBe(3);
+    expect(ItemCtrl.awesomeThings.length).toBe(3);
   });
 });

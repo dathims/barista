@@ -14,3 +14,8 @@ ul, li, h1, h2, h3, h4, h5, body, html {
 .clearfix:after {
     clear: both;
 }
+.unstyle {
+  text-decoration: inherit;
+  color: inherit;
+  font-weight: inherit;
+}
