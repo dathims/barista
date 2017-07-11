@@ -1,5 +1,3 @@
-@import "bourbon/bourbon";
-
 // bower:scss
 @import "components-font-awesome/scss/font-awesome.scss";
 // endbower
@@ -98,7 +96,6 @@ nav.first {
       }
     }
   }
-
 }
 .macaron {
   display: inline-block;
@@ -348,19 +345,7 @@ form.authenticate {
   }
 
 }
-.authenticatePage {
-  @include size(100%);
-  @include position(absolute, 0px 0px 0px 0px);
 
-}
-.authenticateImg {
-  @include size(100%);
-  @include position(absolute, 0px 0px 0px 0px);
-  background: url("http://blogs-images.forbes.com/erikkain/files/2014/06/game-of-thrones-s4e3-arya.jpg") no-repeat center center black;
-  background-size: cover;
-  @extend .opacityLanding;
-
-}
 #loading {
   @include size(100%);
   @include position(fixed, 0px 0px 0px 0px);
@@ -374,10 +359,11 @@ form.authenticate {
   }
 
 }
+
 .indicator {
   text-align: center;
-
 }
+
 .linkAffiliate {
   color: white;
   @include clearfix;
@@ -433,8 +419,8 @@ form.authenticate {
       }
     }
   }
-
 }
+
 .footer {
   @include position(fixed, 0 0px 0px 0px);
   background: rgba(0, 0, 0, 0.5);

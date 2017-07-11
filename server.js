@@ -36,7 +36,7 @@ dirname = (__dirname == "/app") ? process.env.PWD : __dirname;
 app.use(express.static(dirname + '/dist'));
 
 app.listen(app.get('port'), function () {
-    console.log("Node app is running on port " + app.get('port'));
+    console.log("Node app is running on port http://localhost:" + app.get('port'));
 });
 
 
