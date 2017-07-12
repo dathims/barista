@@ -112,8 +112,8 @@ nav.first {
 .menu {  
   z-index: 1000;
   position: fixed;
-  top: 20px;
-  right: 20px;
+  top: 41px;
+  right: 50px;
   font-size: 24px;
   color: #fff;
 }
@@ -132,11 +132,26 @@ nav.first {
 .goliath {
   z-index: 1000;
   position: fixed;
-  top: 20px;
-  left: 20px;
+  top: 50px;
+  left: 50px;
   font-size: 12px;
   text-transform: uppercase;
   color: #fff;
+}
+
+.ariane {
+  z-index: 1000;
+  position: fixed;
+  top: 50px;
+  left: 120px;
+  font-size: 12px;
+  text-transform: uppercase;
+  color: #fff;
+  a {
+    margin-right: 30px;
+    color: #fff;
+    text-decoration: none;
+  }
 }
 
 .button-express {
@@ -404,4 +419,12 @@ input[type=search].search-input{
       color: $_yellow;
     }
   }
+}
+
+.video-content-main {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }

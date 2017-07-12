@@ -1,4 +1,5 @@
-<ul rn-carousel rn-carousel-controls rn-carousel-buffered class="landing">
+<div class="ariane"><a ng-click="items.back()" title="{{'Retour'}}">Retour</a> <span ng-bind="items.product.title"></span></div>
+<ul class="landing">
   <li>
     <div class="media-img" style="background-image:url({{items.product.img}})"></div>
     <div class="carousel">
@@ -12,13 +13,31 @@
       <p class="description" ng-bind="items.product.description"></p>
       <div class="linkTrailer">
         <a ng-href="{{items.product.trailer}}" class="trailer" ng-hide="items.product.trailer.length < 1"> ▸ Watch the trailer</a>
-        <a ng-href="{{items.product.link}}" class="hackit" ng-if="items.product.link">Hack it</a>
+        <a ng-click="items.play()" class="hackit" ng-if="items.product.link">Hack it</a>
         <span ng-href="" class="soon" ng-if="!items.product.link">Coming soon</span>
       </div>
-      <videogular>
-        <vg-media vg-src="items.config.sources">
-        </vg-media>
-      </videogular>
+      <videogular vg-theme="items.config.theme" class="video-content-main" ng-show="items.display">
+			<vg-media vg-src="items.config.sources"
+					vg-tracks="items.config.tracks">
+			</vg-media>
+ 
+			<vg-controls>
+				<vg-play-pause-button></vg-play-pause-button>
+				<vg-time-display>{{ currentTime | date:'mm:ss' }}</vg-time-display>
+				<vg-scrub-bar>
+					<vg-scrub-bar-current-time></vg-scrub-bar-current-time>
+				</vg-scrub-bar>
+				<vg-time-display>{{ timeLeft | date:'mm:ss' }}</vg-time-display>
+				<vg-volume>
+					<vg-mute-button></vg-mute-button>
+					<vg-volume-bar></vg-volume-bar>
+				</vg-volume>
+				<vg-fullscreen-button></vg-fullscreen-button>
+			</vg-controls>
+ 
+			<vg-overlay-play></vg-overlay-play>
+			<vg-poster vg-url='items.config.plugins.poster'></vg-poster>
+		</videogular>
     </div>
   </li>
 </ul>

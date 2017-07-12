@@ -1,7 +1,7 @@
 <form class="search-form">
     <label for="search">Rechercher</label>
-    <input type="search" class="search-input" autofocus name="search" id="search" placeholder="Films, Séries, Animés, ...">
+    <input type="search" class="search-input" ng-model="search" autofocus name="search" id="search" placeholder="Films, Séries, Animés, ...">
 </form>
 <ul class="search-result">
-    <li ng-repeat="item in main.list" class="list-line"><a ng-href="#!/media/{{item.ressource}}" title="{{item.title}}"><span ng-bind="item.title" class="list-title"></span><span ng-bind="item.episode" class="list-episode"></span></a></li>
+    <li ng-repeat="item in main.list | filter: search" class="list-line"><a ng-href="#!/media/{{item.ressource}}" title="{{item.title}}"><span ng-bind="item.title" class="list-title"></span><span ng-bind="item.episode" class="list-episode"></span></a></li>
 </ul>
