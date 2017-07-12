@@ -1,6 +1,7 @@
 {
   "name": "barista",
   "private": true,
+  "version": "1.0",
   "devDependencies": {
     "autoprefixer-core": "^5.2.1",
     "connect-modrewrite": "^0.9.0",
