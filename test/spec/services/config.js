@@ -3,7 +3,7 @@
 describe('Service: config', function () {
 
   // load the service's module
-  beforeEach(module('hackApp'));
+  beforeEach(module('baristaApp'));
 
   // instantiate service
   var config;

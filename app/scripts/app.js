@@ -2,16 +2,16 @@
 
 /**
  * @ngdoc overview
- * @name barista
+ * @name baristaApp
  * @description
- * # barista
+ * # baristaApp
  *
  * Main module of the application.
  */
 
 // var HACKAPI-SHOW = '15s1txaljepJBT6bWaJNzoS4dxjH8HWql6icdAhqcPFA';
 angular
-  .module('barista', [
+  .module('baristaApp', [
     'ngRoute',
     'ngTouch',
     'angular-carousel',
@@ -33,6 +33,11 @@ angular
         templateUrl: 'views/home.html',
         controller: 'HomeCtrl',
         controllerAs: 'main'
+      })
+      .when('/cgu', {
+        templateUrl: 'views/cgu.html',
+        controller: 'CguCtrl',
+        controllerAs: 'cgu'
       })
       .otherwise({
         redirectTo: '/'

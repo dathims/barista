@@ -2,12 +2,12 @@
 
 /**
  * @ngdoc service
- * @name hackApp.drive
+ * @name baristaApp.drive
  * @description
  * # drive
- * Service in the hackApp.
+ * Service in the baristaApp.
  */
-angular.module('barista')
+angular.module('baristaApp')
   .service('drive', ['$http', '$log', 'config', drive]);
 
 function drive($http, $log, config) {

@@ -3,10 +3,10 @@
 
 /**
  * @ngdoc function
- * @name barista.controller:MainCtrl
+ * @name baristaApp.controller:MainCtrl
  * @description
  * # ItemCtrl
- * Controller of the barista
+ * Controller of the baristaApp
  */
 //1P-txsOva5v-KgCIhnz1QPHDmuN_vxavy2FKAbsiqKXM
   function itemCtrl($scope, $http, $routeParams, $sce, $window, drive) {
@@ -61,6 +61,6 @@
         });
   }
 
-  angular.module('barista')
+  angular.module('baristaApp')
     .controller('ItemCtrl', ['$scope', '$http', '$routeParams', '$sce', '$window', 'drive', itemCtrl]);
 })();

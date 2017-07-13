@@ -1,14 +1,13 @@
+(function() {
 'use strict';
 
 /**
  * @ngdoc function
- * @name barista.controller:HomeCtrl
+ * @name baristaApp.controller:HomeCtrl
  * @description
  * # HomeCtrl
- * Controller of the barista
+ * Controller of the baristaApp
  */
-angular.module('barista')
-  .controller('HomeCtrl', ['$http', '$log', 'drive', HomeCtrl]);
 
   function HomeCtrl($http, $log, drive){
     var vm = this;
@@ -47,3 +46,7 @@ angular.module('barista')
         $log.error('error', err);
       });
   };
+
+angular.module('baristaApp')
+  .controller('HomeCtrl', ['$http', '$log', 'drive', HomeCtrl]);
+})();

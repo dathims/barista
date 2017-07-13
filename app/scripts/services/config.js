@@ -2,12 +2,12 @@
 
 /**
  * @ngdoc service
- * @name barista.config
+ * @name baristaApp.config
  * @description
  * # config
- * Constant in the barista.
+ * Constant in the baristaApp.
  */
-angular.module('barista')
+angular.module('baristaApp')
   .constant('config', {
     mainId: '13SOrx5_jlro0zNEXADBqzeMkdT7Nwp8xc954vZIKh64',
     extension: '?alt=json',
